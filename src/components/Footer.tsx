@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -24,11 +24,17 @@ const Footer = () => {
               AI-powered post-onboarding compliance solutions for India's financial ecosystem. Protecting institutions from fraud, financial risk, and reputational damage.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-slate-400 hover:text-reguard-red transition-colors">
+              <a href="https://www.linkedin.com/company/reguard-in" className="text-slate-400 hover:text-reguard-red transition-colors">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-slate-400 hover:text-reguard-red transition-colors">
+              <a href="https://x.com/reguard_in" className="text-slate-400 hover:text-reguard-red transition-colors">
                 <Twitter className="h-5 w-5" />
+              </a>
+              <a href="https://www.instagram.com/reguard_ai/" className="text-slate-400 hover:text-reguard-red transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="https://www.facebook.com/reguard.in/" className="text-slate-400 hover:text-reguard-red transition-colors">
+                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -61,17 +67,17 @@ const Footer = () => {
               <li className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-reguard-red mt-0.5 flex-shrink-0" />
                 <span className="text-slate-400">
-                  Mumbai Financial District<br />
-                  Maharashtra, India 400051
+                  44 IIND FLOOR REGAL BUILDING <br />
+                  CONNAUGHT PLACE NEW DELHI - 110001
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-reguard-red flex-shrink-0" />
-                <span className="text-slate-400">+91 98765 43210</span>
+                <span className="text-slate-400">+91 96546 07040</span>
               </li>
               <li className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-reguard-red flex-shrink-0" />
-                <span className="text-slate-400">contact@reguardai.com</span>
+                <span className="text-slate-400">support@reguardai.com</span>
               </li>
             </ul>
           </div>

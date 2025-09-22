@@ -128,26 +128,26 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      details: '+91 98765 43210',
+      details: '+91 96546 07040',
       subtitle: 'Mon-Fri 9AM-6PM IST'
     },
     {
       icon: Mail,
       title: 'Email',
-      details: 'contact@reguardai.com',
+      details: 'support@reguardai.com',
       subtitle: 'We respond within 24 hours'
     },
     {
       icon: MapPin,
       title: 'Office',
-      details: 'Mumbai Financial District',
-      subtitle: 'Maharashtra, India 400051'
+      details: '44 IIND FLOOR REGAL BUILDING',
+      subtitle: 'CONNAUGHT PLACE, NEW DELHI - 110001'
     },
     {
       icon: Clock,
       title: 'Business Hours',
       details: 'Monday - Friday',
-      subtitle: '9:00 AM - 6:00 PM IST'
+      subtitle: '9:00 AM - 7:00 PM IST'
     }
   ];
 
@@ -199,7 +199,7 @@ const Contact = () => {
                 viewport={{ once: true }}
               >
                 <Card className="text-center bg-white border border-gray-200 hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
+                  <CardContent className="px-2 py-6">
                     <div className="inline-flex p-3 rounded-full bg-reguard-red/10 mb-4">
                       <info.icon className="h-6 w-6 text-reguard-red" />
                     </div>
