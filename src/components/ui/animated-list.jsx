@@ -31,13 +31,15 @@ export const AnimatedList = React.memo(
     )
 
     useEffect(() => {
-      if (index < childrenArray.length - 1) {
-        const timeout = setTimeout(() => {
-          setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
-        }, delay)
+      // Always schedule the next update — no more stopping at the end
+      const timeout = setTimeout(() => {
+        // Increase index every 'delay' ms and wrap back to 0
+        // `% childrenArray.length` makes it loop forever
+        setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
+      }, delay)
 
-        return () => clearTimeout(timeout)
-      }
+      // Clean up the timeout when the component re-renders or unmounts
+      return () => clearTimeout(timeout)
     }, [index, delay, childrenArray.length])
 
     const itemsToShow = useMemo(() => {

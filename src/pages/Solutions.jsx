@@ -51,7 +51,7 @@ const Notification = ({ name, description, icon, color, time }) => {
   return (
     <figure
       className={cn(
-        'w-full relative mx-auto min-h-fit max-w-[400px] cursor-pointer overflow-hidden rounded-2xl p-4',
+        'w-full relative  min-h-fit cursor-pointer overflow-hidden rounded-2xl p-4',
         // animation styles
         'transition-all duration-200 ease-in-out hover:scale-[103%]',
         // light styles
@@ -162,12 +162,12 @@ const Solutions = () => {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 lg:pr-0 flex items-center justify-end">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 lg:pr-0 flex items-center justify-between">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto flex flex-col items-left"
+            className="w-[50%] mx-auto flex flex-col items-left"
           >
             <div className="flex items-center mb-6">
               <h1 className="px-4 py-2 border border-blue-200 bg-blue-50 text-blue-800 text-sm font-medium rounded-full">
@@ -184,17 +184,19 @@ const Solutions = () => {
               specifically for India's financial ecosystem
             </p>
           </motion.div>
-          <div
-            className={cn(
-              'relative flex h-[500px] w-full flex-col items-end overflow-hidden p-2'
-            )}
-          >
-            <AnimatedList className="w-full flex justify-end items-center">
-              {notifications.map((item, idx) => (
-                <Notification {...item} key={idx} />
-              ))}
-            </AnimatedList>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+          <div className="flex justify-end w-[50%]">
+            <div
+              className={cn(
+                'w-full relative flex h-[400px] flex-col items-end overflow-hidden px-4 py-2'
+              )}
+            >
+              <AnimatedList className="w-full flex justify-stretch items-center">
+                {notifications.map((item, idx) => (
+                  <Notification {...item} key={idx} />
+                ))}
+              </AnimatedList>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+            </div>
           </div>
         </div>
       </section>
