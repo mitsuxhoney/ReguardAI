@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import { TimelineContent } from './timeline-animation';
 import { motion } from 'framer-motion';
-
+import GautamR from '../../assets/GautamR.jpeg'
+import StephanieD from '../../assets/StephanieD.jpeg'
 function ClientFeedback() {
   const testimonialRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +30,7 @@ function ClientFeedback() {
       name: "Gautam Rohidekar",
       title: "Group General Counsel",
       company: "Dream11",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      image: GautamR,
       bgColor: "bg-reguard-navy",
       textColor: "text-white"
     },
@@ -38,7 +39,7 @@ function ClientFeedback() {
       name: "Stephanie Davis",
       title: "Head of Compliance",
       company: "Helcim",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face",
+      image: StephanieD,
       bgColor: "bg-reguard-red",
       textColor: "text-white"
     },

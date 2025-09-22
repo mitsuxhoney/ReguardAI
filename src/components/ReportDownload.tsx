@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Download, X, FileText, Globe, TrendingUp, Shield } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
-
+import File from '../assets/File.png';
 const ReportDownload = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -77,24 +77,24 @@ const ReportDownload = () => {
                   <div className="lg:flex lg:items-center">
                     {/* Report Visual */}
                     <div className="lg:w-2/5 relative">
-                      <div className="aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-reguard-navy to-slate-800">
+                      <div className="aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-[#2a333c] to-[#1b252e]">
                         {/* Background Image */}
                         <img 
-                          src="https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop"
+                          src= {File}
                           alt="Cybersecurity Analytics Dashboard"
                           className="absolute inset-0 w-full h-full object-cover opacity-30"
                         />
                         {/* Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-reguard-navy/90 to-slate-800/90"></div>
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:50px_56px] opacity-20"></div>
+                        {/* <div className="absolute inset-0 bg-gradient-to-br from-reguard-navy/90 to-slate-800/90"></div>
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:50px_56px] opacity-20"></div> */}
                         <div className="relative z-10 p-8 h-full flex flex-col justify-between text-white">
                           <div>
                             <div className="inline-flex px-3 py-1 bg-reguard-red rounded-full text-xs font-semibold mb-4">
                               2025 EDITION
                             </div>
-                            <h3 className="text-2xl lg:text-3xl font-bold mb-2">
+                            {/* <h3 className="text-2xl lg:text-3xl font-bold mb-2">
                               Global Cyber Fraud Trends Report
-                            </h3>
+                            </h3> */}
                           </div>
                           <div className="space-y-3">
                             <div className="flex items-center text-sm opacity-90">
