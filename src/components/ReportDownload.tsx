@@ -5,7 +5,7 @@ import { Button } from './ui/button';
 import { Card, CardContent } from './ui/card';
 import File from '../assets/File.png';
 const ReportDownload = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDownloadFormOpen, setIsDownloadFormOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -32,7 +32,7 @@ const ReportDownload = () => {
     console.log('Report download requested:', formData);
     // Here you would typically send the data to your backend
     // and trigger the actual download
-    setIsModalOpen(false);
+    setisDownloadFormOpen(false);
     setFormData({
       firstName: '',
       lastName: '',
@@ -79,8 +79,8 @@ const ReportDownload = () => {
                     <div className="lg:w-2/5 relative">
                       <div className="aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden bg-gradient-to-br from-[#2a333c] to-[#1b252e]">
                         {/* Background Image */}
-                        <img 
-                          src= {File}
+                        <img
+                          src={File}
                           alt="Cybersecurity Analytics Dashboard"
                           className="absolute inset-0 w-full h-full object-cover opacity-30"
                         />
@@ -109,213 +109,219 @@ const ReportDownload = () => {
                         </div>
                       </div>
                     </div>
+                    {!isDownloadFormOpen ? (
+                      {/* Content */ }
+                      <div className="lg:w-3/5 p-8 lg:p-12">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-reguard-navy mb-6">
+                      Essential Reading for Financial Leaders
+                    </h3>
 
-                    {/* Content */}
-                    <div className="lg:w-3/5 p-8 lg:p-12">
-                      <h3 className="text-2xl lg:text-3xl font-bold text-reguard-navy mb-6">
-                        Essential Reading for Financial Leaders
-                      </h3>
-                      
-                      <div className="grid gap-4 mb-8">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                            <TrendingUp className="h-4 w-4 text-reguard-red" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900">Latest Fraud Patterns</h4>
-                            <p className="text-gray-600 text-sm">Emerging threats across global markets</p>
-                          </div>
+                    <div className="grid gap-4 mb-8">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                          <TrendingUp className="h-4 w-4 text-reguard-red" />
                         </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                            <Shield className="h-4 w-4 text-reguard-red" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900">Defense Strategies</h4>
-                            <p className="text-gray-600 text-sm">Proven methods to protect your institution</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                            <FileText className="h-4 w-4 text-reguard-red" />
-                          </div>
-                          <div>
-                            <h4 className="font-semibold text-gray-900">Regulatory Updates</h4>
-                            <p className="text-gray-600 text-sm">Compliance across jurisdictions</p>
-                          </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">Latest Fraud Patterns</h4>
+                          <p className="text-gray-600 text-sm">Emerging threats across global markets</p>
                         </div>
                       </div>
-
-                      <Button
-                        onClick={() => setIsModalOpen(true)}
-                        size="lg"
-                        className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold group shadow-lg hover:shadow-xl transition-all duration-300"
-                      >
-                        <Download className="mr-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-                        Download Free Report
-                      </Button>
-                      <p className="text-xs text-gray-500 text-center mt-3">
-                        No spam. Unsubscribe anytime. Your data is secure.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Download Form Modal */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-            onClick={() => setIsModalOpen(false)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: "spring", duration: 0.5 }}
-              className="w-full max-w-md"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Card className="bg-white shadow-2xl border-0">
-                <CardContent className="p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center">
-                      <div className="p-2 bg-reguard-red rounded-lg mr-3">
-                        <Download className="h-5 w-5 text-white" />
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                          <Shield className="h-4 w-4 text-reguard-red" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">Defense Strategies</h4>
+                          <p className="text-gray-600 text-sm">Proven methods to protect your institution</p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-reguard-navy">Download Report</h3>
-                        <p className="text-sm text-gray-500">Get instant access to the report</p>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
+                          <FileText className="h-4 w-4 text-reguard-red" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-gray-900">Regulatory Updates</h4>
+                          <p className="text-gray-600 text-sm">Compliance across jurisdictions</p>
+                        </div>
                       </div>
-                    </div>
-                    <button
-                      onClick={() => setIsModalOpen(false)}
-                      className="text-gray-400 hover:text-gray-600 transition-colors"
-                    >
-                      <X className="h-6 w-6" />
-                    </button>
-                  </div>
-
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          First Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="firstName"
-                          required
-                          value={formData.firstName}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                          placeholder="John"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Last Name *
-                        </label>
-                        <input
-                          type="text"
-                          name="lastName"
-                          required
-                          value={formData.lastName}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                          placeholder="Doe"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Company Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="company"
-                        required
-                        value={formData.company}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                        placeholder="Your Company"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Work Email *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                        placeholder="you@company.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Country *
-                      </label>
-                      <select
-                        name="country"
-                        required
-                        value={formData.country}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                      >
-                        <option value="">Select your country</option>
-                        {countries.map((country) => (
-                          <option key={country} value={country}>
-                            {country}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
-                      <div className="flex items-center gap-2 font-medium mb-1">
-                        <FileText className="h-4 w-4" />
-                        You'll receive:
-                      </div>
-                      <ul className="space-y-1 ml-6">
-                        <li>• Instant download link via email</li>
-                        <li>• 150+ page comprehensive report</li>
-                        <li>• Quarterly fraud trend updates</li>
-                      </ul>
                     </div>
 
                     <Button
-                      type="submit"
-                      className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold"
+                      onClick={() => setisDownloadFormOpen(true)}
+                      size="lg"
+                      className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold group shadow-lg hover:shadow-xl transition-all duration-300"
                     >
-                      Download Report Now
+                      <Download className="mr-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
+                      Download Free Report
                     </Button>
-                  </form>
-
-                  <p className="text-xs text-gray-500 text-center mt-4">
-                    By downloading, you agree to receive communications from ReguardAI. Unsubscribe anytime.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
+                    <p className="text-xs text-gray-500 text-center mt-3">
+                      No spam. Unsubscribe anytime. Your data is secure.
+                    </p>
+                  </div>
+                  ) : (
+                  null
+                  )
+                    }
+                </div>
+              </CardContent>
+            </Card>
           </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
+      </div>
+    </section >
+
+      {/* Download Form Modal */ }
+      <AnimatePresence>
+  {
+    isDownloadFormOpen && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        onClick={() => setisDownloadFormOpen(false)}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.9, y: 20 }}
+          transition={{ type: "spring", duration: 0.5 }}
+          className="w-full max-w-md"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <Card className="bg-white shadow-2xl border-0">
+            <CardContent className="p-8">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center">
+                  <div className="p-2 bg-reguard-red rounded-lg mr-3">
+                    <Download className="h-5 w-5 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-reguard-navy">Download Report</h3>
+                    <p className="text-sm text-gray-500">Get instant access to the report</p>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setisDownloadFormOpen(false)}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <X className="h-6 w-6" />
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      required
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
+                      placeholder="John"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      required
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Company Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="company"
+                    required
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
+                    placeholder="Your Company"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Work Email *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
+                    placeholder="you@company.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Country *
+                  </label>
+                  <select
+                    name="country"
+                    required
+                    value={formData.country}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
+                  >
+                    <option value="">Select your country</option>
+                    {countries.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-sm text-blue-800">
+                  <div className="flex items-center gap-2 font-medium mb-1">
+                    <FileText className="h-4 w-4" />
+                    You'll receive:
+                  </div>
+                  <ul className="space-y-1 ml-6">
+                    <li>• Instant download link via email</li>
+                    <li>• 150+ page comprehensive report</li>
+                    <li>• Quarterly fraud trend updates</li>
+                  </ul>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold"
+                >
+                  Download Report Now
+                </Button>
+              </form>
+
+              <p className="text-xs text-gray-500 text-center mt-4">
+                By downloading, you agree to receive communications from ReguardAI. Unsubscribe anytime.
+              </p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </motion.div>
+    )
+  }
+      </AnimatePresence >
     </>
   );
 };
