@@ -1,53 +1,68 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Users, Building, CreditCard, AlertTriangle, Brain, Shield, ArrowRight, TrendingUp } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
+import React from 'react'
+import { motion } from 'framer-motion'
+import {
+  Users,
+  Building,
+  CreditCard,
+  AlertTriangle,
+  Brain,
+  Shield,
+  ArrowRight,
+  TrendingUp,
+} from 'lucide-react'
+import { Card, CardContent } from './ui/card'
 
 const Features = () => {
   const problems = [
     {
       icon: AlertTriangle,
-      title: "Manual Compliance is Failing",
-      description: "Traditional methods miss 40% of fraud cases and cost 10x more in resources"
+      title: 'Manual Compliance is Failing',
+      description:
+        'Traditional methods miss 40% of fraud cases and cost 10x more in resources',
     },
     {
       icon: TrendingUp,
-      title: "Fraud is Growing Exponentially", 
-      description: "Financial fraud increased 300% in India, costing institutions billions annually"
+      title: 'Fraud is Growing Exponentially',
+      description:
+        'Financial fraud increased 300% in India, costing institutions billions annually',
     },
     {
       icon: Users,
-      title: "Post-Onboarding Blind Spots",
-      description: "85% of fraud happens after onboarding when monitoring becomes manual"
-    }
-  ];
+      title: 'Post-Onboarding Blind Spots',
+      description:
+        '85% of fraud happens after onboarding when monitoring becomes manual',
+    },
+  ]
 
   const solutions = [
     {
       icon: Brain,
-      title: "AI-Powered Detection",
-      description: "Machine learning algorithms trained on Indian financial patterns detect fraud in real-time",
-      metric: "99.8% accuracy"
+      title: 'AI-Powered Detection',
+      description:
+        'Machine learning algorithms trained on Indian financial patterns detect fraud in real-time',
+      metric: '99.8% accuracy',
     },
     {
       icon: Shield,
-      title: "Continuous Monitoring",
-      description: "24/7 automated surveillance of customers, vendors, and merchants post-onboarding",
-      metric: "< 1s response"
+      title: 'Continuous Monitoring',
+      description:
+        '24/7 automated surveillance of customers, vendors, and merchants post-onboarding',
+      metric: '< 1s response',
     },
     {
       icon: Building,
-      title: "Regulatory Compliance",
-      description: "Automated compliance with RBI, SEBI, and other Indian financial regulations",
-      metric: "100% compliant"
-    }
-  ];
+      title: 'Regulatory Compliance',
+      description:
+        'Automated compliance with RBI, SEBI, and other Indian financial regulations',
+      metric: '100% compliant',
+    },
+  ]
 
   return (
     <section id="features" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Problem Section */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,8 +93,12 @@ const Features = () => {
                   <div className="inline-flex p-4 rounded-full bg-red-100 mb-6">
                     <problem.icon className="h-8 w-8 text-red-600" />
                   </div>
-                  <h3 className="text-xl font-bold text-reguard-navy mb-4">{problem.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{problem.description}</p>
+                  <h3 className="text-xl font-bold text-reguard-navy mb-4">
+                    {problem.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {problem.description}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -87,7 +106,7 @@ const Features = () => {
         </div>
 
         {/* Solution Section */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +144,9 @@ const Features = () => {
                   <h3 className="text-xl font-bold text-reguard-navy mb-4 group-hover:text-reguard-red transition-colors duration-300">
                     {solution.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-6">{solution.description}</p>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    {solution.description}
+                  </p>
                   <div className="flex items-center text-reguard-red font-medium group-hover:translate-x-2 transition-transform duration-300">
                     Learn More
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -137,7 +158,7 @@ const Features = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Features;
+export default Features
