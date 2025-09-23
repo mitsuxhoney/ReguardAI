@@ -4,6 +4,7 @@ import { ArrowRight, Play, CheckCircle, Star } from 'lucide-react'
 import { Button } from './ui/button'
 import { AnimatedBeam } from '@/components/ui/animated-beam'
 import { cn } from '../lib/utils'
+import { RainbowButton } from './ui/rainbow-button'
 
 const Icons = {
   openai: () => (
@@ -166,12 +167,22 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 py-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <Button
+            <RainbowButton
+              className="px-8 py-4 text-lg text-white font-semibold shadow-lg hover:shadow-xl group"
+              onClick={() =>
+                window.open('https://cal.com/reguardai.com/secret', '_blank')
+              }
+              size="lg"
+            >
+              Schedule Demo
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </RainbowButton>
+            {/* <Button
               size="lg"
               className="bg-reguard-red hover:bg-red-700 text-white px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 group"
               onClick={() =>
@@ -189,7 +200,7 @@ const Hero = () => {
             >
               <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
               Watch 2-Min Demo
-            </Button>
+            </Button> */}
           </motion.div>
 
           {/* Risk-Free Guarantee */}
