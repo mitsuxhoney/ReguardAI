@@ -23,6 +23,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 import { Toaster } from 'sonner'
 import FraudSignals from './components/FraudSignals'
+import ScrollToTop from './components/ScrollToTop'
 
 // Home Page Component
 const HomePage = () => (
@@ -39,6 +40,7 @@ const HomePage = () => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white">
         <Toaster richColors position="top-right" />
         <Header />
