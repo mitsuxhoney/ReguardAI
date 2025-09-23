@@ -1,57 +1,346 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Download, X, FileText, Globe, TrendingUp, Shield } from 'lucide-react';
-import { Button } from './ui/button';
-import { Card, CardContent } from './ui/card';
-import File from '../assets/File.png';
-import { FlipCard } from './ui/flip-animation';
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Download, X, FileText, Globe, TrendingUp, Shield } from 'lucide-react'
+import { Button } from './ui/button'
+import { Card, CardContent } from './ui/card'
+import File from '../assets/File.png'
+import { FlipCard } from './ui/flip-animation'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from '@/components/ui/select'
+import { toast } from 'sonner'
+import { createClient } from '@supabase/supabase-js'
 
-
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 const ReportDownload = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     company: '',
     designation: '',
     email: '',
-    country: ''
-  });
+    country: '',
+  })
 
   const countries = [
-    'India', 'United States', 'United Kingdom', 'Canada', 'Australia',
-    'Singapore', 'UAE', 'Germany', 'France', 'Japan', 'South Korea',
-    'Brazil', 'Mexico', 'South Africa', 'Nigeria', 'Other'
-  ];
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cabo Verde',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombia',
+    'Comoros',
+    'Congo (Congo-Brazzaville)',
+    'Costa Rica',
+    'Croatia',
+    'Cuba',
+    'Cyprus',
+    'Czechia (Czech Republic)',
+    'Democratic Republic of the Congo',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Eswatini',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'France',
+    'Gabon',
+    'Gambia',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Montenegro',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'North Korea',
+    'North Macedonia',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Palestine State',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent and the Grenadines',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'South Korea',
+    'South Sudan',
+    'Spain',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    'Timor-Leste',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Vatican City',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe',
+    'Other',
+  ]
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleInputChange = (eOrValue, fieldName) => {
+    if (typeof eOrValue === 'string' && fieldName) {
+      // Case for Select: value is passed directly
+      setFormData((prev) => ({
+        ...prev,
+        [fieldName]: eOrValue,
+      }))
+    } else {
+      // Case for native input/textarea: event object
+      const e = eOrValue
+      setFormData((prev) => ({
+        ...prev,
+        [e.target.name]: e.target.value,
+      }))
+    }
+  }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Report download requested:', formData);
-    // Here you would typically send the data to your backend
-    // and trigger the actual download
-    setIsModalOpen(false);
-    setFormData({
-      firstName: '',
-      lastName: '',
-      company: '',
-      email: '',
-      country: ''
-    });
-    // Simulate download
-    alert('Thank you! Your report download will begin shortly.');
-  };
+  const validateForm = () => {
+    const errors = []
+
+    // Check required fields
+
+    if (!formData.firstName.trim()) {
+      errors.push('First Name is required')
+    }
+
+    if (!formData.lastName.trim()) {
+      errors.push('Last Name is required')
+    }
+
+    if (!formData.email.trim()) {
+      errors.push('Work Email is required')
+    } else {
+      // Email format validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+      if (!emailRegex.test(formData.email)) {
+        errors.push('Please enter a valid email address')
+      }
+    }
+
+    if (!formData.designation.trim()) {
+      errors.push('Designation is required')
+    }
+
+    // Phone validation (only if provided)
+    if (!formData.company.trim()) {
+      errors.push('Company Name is required')
+    }
+
+    if (!formData.country.trim()) {
+      errors.push('Country is required')
+    }
+
+    return errors
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    console.log(formData)
+
+    const validationErrors = validateForm()
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0])
+      return
+    }
+
+    try {
+      // Insert the form data into your Supabase table
+
+      const { error } = await supabase
+        .from('download_report') // Replace with your table name
+        .insert([
+          {
+            first_name: formData.firstName.trim(),
+            last_name: formData.lastName.trim(),
+            email: formData.email.trim().toLowerCase(),
+            company: formData.company.trim(),
+            designation: formData.designation.trim(),
+            country: formData.country.trim(),
+            status: 'Requested',
+          },
+        ])
+
+      if (error) throw error
+
+      // Show success message with react-hot-toast
+      toast.success("Thank you for your message! We'll get back to you soon.")
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        company: '',
+        designation: '',
+        country: '',
+      })
+      setIsModalOpen(false)
+    } catch (error) {
+      console.error('Error submitting form:', error)
+      // Show error message with react-hot-toast
+      toast.error('Something went wrong. Please try again later.')
+    }
+  }
 
   return (
     <>
-      <section id="report" className="py-24 bg-gradient-to-br from-slate-50 to-gray-100">
+      <section
+        id="report"
+        className="py-24 bg-gradient-to-br from-slate-50 to-gray-100"
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <motion.div
@@ -69,15 +358,15 @@ const ReportDownload = () => {
                 <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-reguard-navy">
                   Get the Latest
                   <br />
-                  <span className="text-reguard-red">Cyber Fraud Intelligence</span>
+                  <span className="text-reguard-red">
+                    Cyber Fraud Intelligence
+                  </span>
                 </h2>
                 <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                  Download our comprehensive 2025 Global Cyber Fraud Trends Report
+                  Download our comprehensive 2025 Global Cyber Fraud Trends
+                  Report
                 </p>
               </div>
-
-
-
 
               <Card className="overflow-hidden bg-white shadow-xl border-0 max-w-5xl mx-auto">
                 <CardContent className="p-0">
@@ -103,12 +392,13 @@ const ReportDownload = () => {
                             <div className="w-full bg-white/20 rounded-full h-2">
                               <div className="bg-reguard-red h-2 rounded-full w-3/4"></div>
                             </div>
-                            <p className="text-xs opacity-75">Latest fraud intelligence & defense strategies</p>
+                            <p className="text-xs opacity-75">
+                              Latest fraud intelligence & defense strategies
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
-
 
                     {/* right */}
                     {/* <div className="lg:w-3/5 p-8 lg:p-12">
@@ -287,18 +577,18 @@ const ReportDownload = () => {
                           className="relative w-full h-full"
                           initial={false}
                           animate={{ rotateY: isModalOpen ? 180 : 0 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          transition={{ duration: 0.3, ease: 'easeInOut' }}
                           style={{
-                            transformStyle: "preserve-3d",
-                            transformOrigin: "center center"
+                            transformStyle: 'preserve-3d',
+                            transformOrigin: 'center center',
                           }}
                         >
                           {/* Front side - Benefits */}
                           <div
                             className="absolute inset-0 w-full h-fit backface-hidden p-8 lg:p-12"
                             style={{
-                              backfaceVisibility: "hidden",
-                              WebkitBackfaceVisibility: "hidden"
+                              backfaceVisibility: 'hidden',
+                              WebkitBackfaceVisibility: 'hidden',
                             }}
                           >
                             <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-6">
@@ -310,8 +600,13 @@ const ReportDownload = () => {
                                   <TrendingUp className="h-5 w-5 text-red-600" />
                                 </div>
                                 <div>
-                                  <h4 className="font-semibold text-gray-900 mb-1">Latest Fraud Patterns</h4>
-                                  <p className="text-gray-600 text-sm">Emerging threats across global markets and how they're evolving</p>
+                                  <h4 className="font-semibold text-gray-900 mb-1">
+                                    Latest Fraud Patterns
+                                  </h4>
+                                  <p className="text-gray-600 text-sm">
+                                    Emerging threats across global markets and
+                                    how they're evolving
+                                  </p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-4">
@@ -319,8 +614,13 @@ const ReportDownload = () => {
                                   <Shield className="h-5 w-5 text-red-600" />
                                 </div>
                                 <div>
-                                  <h4 className="font-semibold text-gray-900 mb-1">Defense Strategies</h4>
-                                  <p className="text-gray-600 text-sm">Proven methods to protect your institution from sophisticated attacks</p>
+                                  <h4 className="font-semibold text-gray-900 mb-1">
+                                    Defense Strategies
+                                  </h4>
+                                  <p className="text-gray-600 text-sm">
+                                    Proven methods to protect your institution
+                                    from sophisticated attacks
+                                  </p>
                                 </div>
                               </div>
                               <div className="flex items-start gap-4">
@@ -328,8 +628,13 @@ const ReportDownload = () => {
                                   <FileText className="h-5 w-5 text-red-600" />
                                 </div>
                                 <div>
-                                  <h4 className="font-semibold text-gray-900 mb-1">Regulatory Updates</h4>
-                                  <p className="text-gray-600 text-sm">Compliance requirements across different jurisdictions</p>
+                                  <h4 className="font-semibold text-gray-900 mb-1">
+                                    Regulatory Updates
+                                  </h4>
+                                  <p className="text-gray-600 text-sm">
+                                    Compliance requirements across different
+                                    jurisdictions
+                                  </p>
                                 </div>
                               </div>
                             </div>
@@ -349,9 +654,9 @@ const ReportDownload = () => {
                           <div
                             className="absolute inset-0 w-full h-full backface-hidden p-8 lg:px-10 lg:py-8"
                             style={{
-                              backfaceVisibility: "hidden",
-                              WebkitBackfaceVisibility: "hidden",
-                              transform: "rotateY(180deg)"
+                              backfaceVisibility: 'hidden',
+                              WebkitBackfaceVisibility: 'hidden',
+                              transform: 'rotateY(180deg)',
                             }}
                           >
                             <div className="flex items-center justify-between mb-4">
@@ -366,104 +671,100 @@ const ReportDownload = () => {
                               </button>
                             </div>
 
-                            <div className="space-y-5">
+                            <form onSubmit={handleSubmit} className="space-y-5">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                   {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                     First Name <span className="text-red-600">*</span>
                                   </label> */}
-                                  <input
+                                  <Input
                                     type="text"
                                     name="firstName"
                                     required
                                     value={formData.firstName}
                                     onChange={handleInputChange}
-                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="First Name"
-                                    autoComplete="given-name"
+                                    placeholder="First Name *"
                                   />
                                 </div>
                                 <div>
                                   {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                     Last Name <span className="text-red-600">*</span>
                                   </label> */}
-                                  <input
+                                  <Input
                                     type="text"
                                     name="lastName"
                                     required
                                     value={formData.lastName}
                                     onChange={handleInputChange}
-                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="Last Name"
-                                    autoComplete="family-name"
+                                    placeholder="Last Name *"
                                   />
                                 </div>
                               </div>
-
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                   Company Name <span className="text-red-600">*</span>
                                 </label> */}
                                 <div>
-                                  <input
+                                  <Input
                                     type="text"
                                     name="company"
                                     required
                                     value={formData.company}
                                     onChange={handleInputChange}
-                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="Company Name"
-                                    autoComplete="organization"
+                                    placeholder="Company Name *"
                                   />
                                 </div>
                                 <div>
-                                  <input
+                                  <Input
                                     type="text"
                                     name="designation"
                                     required
-                                    value={formData.company}
+                                    value={formData.designation}
                                     onChange={handleInputChange}
-                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="Designation"
-                                    autoComplete="organization"
+                                    placeholder="Designation *"
                                   />
                                 </div>
                               </div>
-
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                   Work Email <span className="text-red-600">*</span>
                                 </label> */}
                                 <div>
-                                  <input
+                                  <Input
                                     type="email"
                                     name="email"
                                     required
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="Work Email"
-                                    autoComplete="email"
+                                    placeholder="Work Email *"
                                   />
                                 </div>
                                 <div>
                                   {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                   Country <span className="text-red-600">*</span>
                                   </label> */}
-                                  <select
+                                  <Select
                                     name="country"
                                     required
                                     value={formData.country}
-                                    onChange={handleInputChange}
-                                    className="w-full h-12 px-4 py-0 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all text-sm shadow-sm"
+                                    onValueChange={(value) =>
+                                      handleInputChange(value, 'country')
+                                    }
                                   >
-                                    <option value="">Country</option>
-                                    {countries.map((country) => (
-                                      <option key={country} value={country}>
-                                        {country}
-                                      </option>
-                                    ))}
-                                  </select>
+                                    <SelectTrigger className="w-full">
+                                      <SelectValue placeholder="Country *" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                      {countries.map((country) => (
+                                        <SelectItem
+                                          key={country}
+                                          value={country}
+                                        >
+                                          {country}
+                                        </SelectItem>
+                                      ))}
+                                    </SelectContent>
+                                  </Select>
                                 </div>
                               </div>
                               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 mt-4">
@@ -478,23 +779,23 @@ const ReportDownload = () => {
                                 </ul>
                               </div>
                               <button
-                                type="button"
+                                type="submit"
                                 onClick={handleSubmit}
                                 className="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-base font-semibold rounded-lg shadow-md transition-all hover:shadow-lg"
                               >
                                 Download Report Now
                               </button>
-                            </div>
+                            </form>
 
                             <p className="text-xs text-gray-500 text-center mt-4">
-                              By downloading, you agree to receive communications from ReguardAI. Unsubscribe anytime.
+                              By downloading, you agree to receive
+                              communications from ReguardAI. Unsubscribe
+                              anytime.
                             </p>
                           </div>
                         </motion.div>
                       </div>
                     </div>
-
-
                   </div>
                 </CardContent>
               </Card>
@@ -503,15 +804,15 @@ const ReportDownload = () => {
         </div>
       </section>
     </>
-  );
-};
-export default ReportDownload;
+  )
+}
+export default ReportDownload
 
-
-
-
-{/* Download Form Modal */ }
-{/* <AnimatePresence>
+{
+  /* Download Form Modal */
+}
+{
+  /* <AnimatePresence>
         {false && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -659,4 +960,5 @@ export default ReportDownload;
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence> */}
+      </AnimatePresence> */
+}

@@ -173,13 +173,13 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <RainbowButton
-              className="px-8 py-4 text-lg text-white font-semibold shadow-lg hover:shadow-xl group"
+              className="px-10 py-5 text-sm text-white font-semibold shadow-lg hover:shadow-xl group"
               onClick={() =>
                 window.open('https://cal.com/reguardai.com/secret', '_blank')
               }
               size="lg"
             >
-              Schedule Demo
+              SCHEDULE DEMO
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </RainbowButton>
             {/* <Button
