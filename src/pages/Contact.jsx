@@ -334,10 +334,10 @@ const Contact = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold"
+                      className="w-full text-xl bg-red-600 hover:bg-red-700 text-white py-6 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
                     >
-                      <Send className="mr-2 h-5 w-5" />
-                      Send Message
+                      <Send size={32} />
+                      <span>Send Message</span>
                     </Button>
                   </form>
                 </CardContent>
