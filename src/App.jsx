@@ -24,6 +24,7 @@ import Contact from './pages/Contact'
 import { Toaster } from 'sonner'
 import FraudSignals from './components/FraudSignals'
 import ScrollToTop from './components/ScrollToTop'
+import ScrollToTopButton from './components/ScrollToTopButton'
 
 // Home Page Component
 const HomePage = () => (
@@ -83,6 +84,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </Router>
   )
