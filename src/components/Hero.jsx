@@ -61,7 +61,7 @@ const Hero = () => {
   width={30}
   height={30}
   x={-1}
-  y={-1}
+  y={-4}
   strokeDasharray="4 2"
   className={cn(
     "[mask-image:radial-gradient(1500px_circle_at_center,transparent,white)]"

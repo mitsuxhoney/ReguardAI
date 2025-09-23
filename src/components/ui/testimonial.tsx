@@ -3,6 +3,10 @@ import { TimelineContent } from './timeline-animation';
 import { motion } from 'framer-motion';
 import GautamR from '../../assets/GautamR.jpeg'
 import StephanieD from '../../assets/StephanieD.jpeg'
+import Woman1 from '../../assets/TPVaMpIO.jpg'
+import Woman2 from '../../assets/pBNxuTfQ.jpg'
+import Man1 from '../../assets/uWiIr19l.jpg'
+import Man2 from '../../assets/bLoeMnQB.jpg'
 function ClientFeedback() {
   const testimonialRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +61,7 @@ function ClientFeedback() {
       name: "Sneha Reddy",
       title: "Risk Manager",
       company: "Digital Bank",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
+      image: Woman1,
       bgColor: "bg-blue-600",
       textColor: "text-white"
     },
@@ -66,7 +70,7 @@ function ClientFeedback() {
       name: "Vikram Singh",
       title: "Compliance Head",
       company: "Regional Bank",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
+      image: Man1,
       bgColor: "bg-slate-900",
       textColor: "text-white"
     },
@@ -75,7 +79,7 @@ function ClientFeedback() {
       name: "Kavya Nair",
       title: "CTO",
       company: "Payment Processor",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face",
+      image: Woman2,
       bgColor: "bg-reguard-red",
       textColor: "text-white"
     }
@@ -294,7 +298,7 @@ function ClientFeedback() {
                     <div className="text-sm opacity-75">Digital Lending Platform</div>
                   </div>
                   <img
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face"
+                    src={Man2}
                     alt="Arjun Mehta"
                     className="w-16 h-16 rounded-xl object-cover border-2 border-white/20"
                   />
