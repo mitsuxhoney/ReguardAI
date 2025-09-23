@@ -13,25 +13,53 @@ const About = () => {
     { value: '15+', label: 'Countries Served', icon: Globe }
   ];
 
-  const team = [
+  const members = [
     {
       name: 'Rajesh Kumar',
       role: 'CEO & Co-Founder',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-      bio: 'Former VP at HDFC Bank with 15+ years in financial compliance'
+      // bio: 'Former VP at HDFC Bank with 15+ years in financial compliance'
     },
     {
       name: 'Priya Sharma',
       role: 'CTO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face',
-      bio: 'AI/ML expert, former Google engineer specializing in fraud detection'
+      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face',
+      // bio: 'AI/ML expert, former Google engineer specializing in fraud detection'
+    },
+    {
+      name: 'Amit Patel',
+      role: 'Head of Compliance',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=500&fit=crop&crop=face',
+      // bio: 'Former RBI regulatory expert with deep knowledge of Indian financial laws'
+    },
+    {
+      name: 'Bernard Ngandu',
+      role: 'Backend Dev',
+      image: 'https://avatars.githubusercontent.com/u/31113941?v=4',
+    },
+    {
+      name: 'Rajesh Kumar',
+      role: 'CEO & Co-Founder',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      // bio: 'Former VP at HDFC Bank with 15+ years in financial compliance'
+    },
+    {
+      name: 'Priya Sharma',
+      role: 'CTO & Co-Founder',
+      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face',
+      // bio: 'AI/ML expert, former Google engineer specializing in fraud detection'
     },
     {
       name: 'Amit Patel',
       role: 'Head of Compliance',
       image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-      bio: 'Former RBI regulatory expert with deep knowledge of Indian financial laws'
-    }
+      // bio: 'Former RBI regulatory expert with deep knowledge of Indian financial laws'
+    },
+    {
+      name: 'Bernard Ngandu',
+      role: 'Backend Dev',
+      image: 'https://avatars.githubusercontent.com/u/31113941?v=4',
+    },
   ];
 
   return (
@@ -139,7 +167,8 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-white">
+
+      {/* <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -181,7 +210,32 @@ const About = () => {
             ))}
           </div>
         </div>
+      </section> */}
+
+      <section className="py-12 md:py-32">
+        <div className="mx-auto max-w-3xl px-8 lg:px-0">
+          <h2 className="mb-8 text-4xl font-bold md:mb-16 lg:text-5xl">Our team</h2>
+
+          <div>
+            {/* <h3 className="mb-6 text-lg font-medium">Leadership</h3> */}
+            <div className="grid grid-cols-2 gap-4 border-t py-6 md:grid-cols-4">
+              {members.map((member, index) => (
+                <div key={index}>
+                  <div className="flex items-center justify-center">
+                  <div className="bg-background  size-28 rounded-full border p-0.5 shadow shadow-zinc-950/5">
+                    <img className="aspect-square rounded-full object-cover" src={member.image} alt={member.name} height="500" width="500" loading="lazy" />
+                  </div>
+                  </div>
+                  <span className="mt-2 text-center block text-sm">{member.name}</span>
+                  <span className="text-muted-foreground text-center block text-xs">{member.role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
       </section>
+
 
       {/* Values Section */}
       <section className="py-24 bg-gray-50">
@@ -263,7 +317,7 @@ const About = () => {
           </motion.div>
         </div>
       </section> */}
-      <CTA/>
+      <CTA />
     </div>
   );
 };
