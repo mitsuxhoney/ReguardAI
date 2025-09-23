@@ -4,6 +4,7 @@ import { ArrowRight, Landmark, Smartphone, Building2, CreditCard, Banknote } fro
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import CTA from '@/components/CTA';
 
 const Industries = () => {
   const industries = [
@@ -198,7 +199,7 @@ const Industries = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-reguard-navy">
+      {/* <section className="py-24 bg-reguard-navy">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -227,7 +228,8 @@ const Industries = () => {
             </Button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <CTA/>
     </div>
   );
 };
