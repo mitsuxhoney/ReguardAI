@@ -9,6 +9,8 @@ import { RainbowButton } from './ui/rainbow-button'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+
+  //button scroll added
   const [isButtonScrolled, setIsButtonScrolled] = useState(false)
 
   const location = useLocation()
