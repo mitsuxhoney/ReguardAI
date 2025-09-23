@@ -286,7 +286,7 @@ const ReportDownload = () => {
                           className="relative w-full h-full"
                           initial={false}
                           animate={{ rotateY: isModalOpen ? 180 : 0 }}
-                          transition={{ duration: 0.8, ease: "easeInOut" }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
                           style={{
                             transformStyle: "preserve-3d",
                             transformOrigin: "center center"
