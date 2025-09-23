@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { CreditCard, CheckCircle, ArrowRight, Zap, Shield, AlertTriangle } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent } from '../../components/ui/card';
+import CTA from '@/components/CTA';
 
 const PaymentProcessors = () => {
   const challenges = [
@@ -229,7 +230,7 @@ const PaymentProcessors = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-reguard-navy">
+      {/* <section className="py-24 bg-reguard-navy">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -258,7 +259,8 @@ const PaymentProcessors = () => {
             </Button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <CTA/>
     </div>
   );
 };

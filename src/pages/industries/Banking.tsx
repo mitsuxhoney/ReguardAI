@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Landmark, CheckCircle, ArrowRight, Shield, Users, FileCheck } from 'lucide-react';
 import { Button } from '../../components/ui/button';
 import { Card, CardContent } from '../../components/ui/card';
+import CTA from '@/components/CTA';
 
 const Banking = () => {
   const challenges = [
@@ -229,7 +230,7 @@ const Banking = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-reguard-navy">
+      {/* <section className="py-24 bg-reguard-navy">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -258,7 +259,8 @@ const Banking = () => {
             </Button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <CTA/>
     </div>
   );
 };
