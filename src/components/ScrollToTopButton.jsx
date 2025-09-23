@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { ArrowUp } from 'lucide-react' // nice up-arrow icon
+import { ArrowUp } from 'lucide-react'
 
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false)
@@ -20,7 +20,7 @@ export default function ScrollToTopButton() {
     <button
       onClick={scrollToTop}
       aria-label="Scroll to top"
-      className={`fixed right-6 bottom-6 z-50 transition-all duration-300
+      className={`fixed left-6 bottom-6 z-50 transition-all duration-300
                   bg-reguard-red text-white p-3 rounded-full shadow-lg
                   hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2
                   focus:ring-reguard-red
