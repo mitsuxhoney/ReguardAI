@@ -93,11 +93,8 @@ const FraudSignals = () => {
                           damping: 25,
                         }}
                       >
-                        <Circle
-                          ref={source1Ref}
-                          className={fraudSources[0].color}
-                        >
-                          <Source1Icon className="h-6 w-6 text-red-600" />
+                        <Circle ref={source1Ref}>
+                          <Source1Icon className="h-6 w-6" />
                         </Circle>
                       </motion.div>
                       <motion.div>
@@ -136,6 +133,7 @@ const FraudSignals = () => {
                 <AnimatedBeam
                   containerRef={containerRef}
                   fromRef={source1Ref}
+                  pathColor="white"
                   toRef={reguardAIRef}
                   curvature={-30}
                   delay={0}
@@ -143,6 +141,7 @@ const FraudSignals = () => {
                 <AnimatedBeam
                   containerRef={containerRef}
                   fromRef={source2Ref}
+                  pathColor="white"
                   toRef={reguardAIRef}
                   curvature={-10}
                   delay={0.5}
@@ -151,6 +150,7 @@ const FraudSignals = () => {
                   containerRef={containerRef}
                   fromRef={source3Ref}
                   toRef={reguardAIRef}
+                  pathColor="white"
                   curvature={10}
                   delay={1}
                 />
@@ -158,6 +158,7 @@ const FraudSignals = () => {
                   containerRef={containerRef}
                   fromRef={source4Ref}
                   toRef={reguardAIRef}
+                  pathColor="white"
                   curvature={30}
                   delay={1.5}
                 />
@@ -165,6 +166,7 @@ const FraudSignals = () => {
                   containerRef={containerRef}
                   fromRef={reguardAIRef}
                   toRef={clientAppRef}
+                  pathColor="white"
                   curvature={0}
                   delay={2}
                 />

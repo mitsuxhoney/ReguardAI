@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
+import React, { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
+import { Button } from '../components/ui/button'
+import { Card, CardContent } from '../components/ui/card'
 import { createClient } from '@supabase/supabase-js'
-import { toast } from 'sonner';
+import { toast } from 'sonner'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -20,14 +20,18 @@ const Contact = () => {
     message: '',
     referer: '',
     form_source: '',
-  });
+  })
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+      [e.target.name]: e.target.value,
+    })
+  }
 
   const validateForm = () => {
     const errors = []
@@ -71,7 +75,7 @@ const Contact = () => {
     return errors
   }
 
-  const handleSubmit = async(e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     // Validate form
@@ -122,34 +126,34 @@ const Contact = () => {
     }
     // Handle form submission here
     // console.log('Form submitted:', formData)
-  };
+  }
 
   const contactInfo = [
     {
       icon: Phone,
       title: 'Phone',
       details: '+91 96546 07040',
-      subtitle: 'Mon-Fri 9AM-6PM IST'
+      subtitle: 'Mon-Fri 9AM-6PM IST',
     },
     {
       icon: Mail,
       title: 'Email',
       details: 'support@reguardai.com',
-      subtitle: 'We respond within 24 hours'
+      subtitle: 'We respond within 24 hours',
     },
     {
       icon: MapPin,
       title: 'Office',
       details: '44 IIND FLOOR REGAL BUILDING',
-      subtitle: 'CONNAUGHT PLACE, NEW DELHI - 110001'
+      subtitle: 'CONNAUGHT PLACE, NEW DELHI - 110001',
     },
     {
       icon: Clock,
       title: 'Business Hours',
       details: 'Monday - Friday',
-      subtitle: '9:00 AM - 7:00 PM IST'
-    }
-  ];
+      subtitle: '9:00 AM - 7:00 PM IST',
+    },
+  ]
 
   const subjects = [
     'General Inquiry',
@@ -157,8 +161,8 @@ const Contact = () => {
     'Technical Support',
     'Partnership Opportunities',
     'Pricing Information',
-    'Implementation Support'
-  ];
+    'Implementation Support',
+  ]
 
   return (
     <div className="min-h-screen bg-white">
@@ -180,7 +184,8 @@ const Contact = () => {
               <span className="text-reguard-red">Expert Team</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Ready to protect your institution from fraud? Our compliance experts are here to help you get started with ReguardAI.
+              Ready to protect your institution from fraud? Our compliance
+              experts are here to help you get started with ReguardAI.
             </p>
           </motion.div>
         </div>
@@ -203,8 +208,12 @@ const Contact = () => {
                     <div className="inline-flex p-3 rounded-full bg-reguard-red/10 mb-4">
                       <info.icon className="h-6 w-6 text-reguard-red" />
                     </div>
-                    <h3 className="font-semibold text-reguard-navy mb-2">{info.title}</h3>
-                    <p className="text-gray-900 font-medium mb-1">{info.details}</p>
+                    <h3 className="font-semibold text-reguard-navy mb-2">
+                      {info.title}
+                    </h3>
+                    <p className="text-gray-900 font-medium mb-1">
+                      {info.details}
+                    </p>
                     <p className="text-sm text-gray-500">{info.subtitle}</p>
                   </CardContent>
                 </Card>
@@ -227,7 +236,9 @@ const Contact = () => {
             >
               <Card className="bg-white shadow-xl">
                 <CardContent className="p-8">
-                  <h2 className="text-3xl font-bold text-reguard-navy mb-6">Send Us a Message</h2>
+                  <h2 className="text-3xl font-bold text-reguard-navy mb-6">
+                    Get In Touch
+                  </h2>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
@@ -349,14 +360,15 @@ const Contact = () => {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4">Book a Live Demo</h3>
                   <p className="text-blue-100 mb-6">
-                    See ReguardAI in action with a personalized demo tailored to your institution's needs.
+                    See ReguardAI in action with a personalized demo tailored to
+                    your institution's needs.
                   </p>
                   <div className="space-y-4 mb-8">
                     {[
                       'Live fraud detection demonstration',
                       'Custom ROI calculation',
                       'Implementation timeline',
-                      'Pricing discussion'
+                      'Pricing discussion',
                     ].map((item, index) => (
                       <div key={index} className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-green-400 mr-3 flex-shrink-0" />
@@ -364,8 +376,13 @@ const Contact = () => {
                       </div>
                     ))}
                   </div>
-                  <Button 
-                    onClick={() => window.open('https://cal.com/reguardai.com/secret', '_blank')}
+                  <Button
+                    onClick={() =>
+                      window.open(
+                        'https://cal.com/reguardai.com/secret',
+                        '_blank'
+                      )
+                    }
                     className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold"
                   >
                     Schedule Demo Now
@@ -373,31 +390,38 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white border border-gray-200">
+              {/* <Card className="bg-white border border-gray-200">
                 <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-reguard-navy mb-4">Why Choose ReguardAI?</h3>
+                  <h3 className="text-2xl font-bold text-reguard-navy mb-4">
+                    Why Choose ReguardAI?
+                  </h3>
                   <div className="space-y-4">
                     {[
                       { metric: '₹2000Cr+', label: 'Fraud Prevented' },
                       { metric: '500+', label: 'Institutions Protected' },
                       { metric: '99.8%', label: 'Detection Accuracy' },
-                      { metric: '24/7', label: 'Monitoring Coverage' }
+                      { metric: '24/7', label: 'Monitoring Coverage' },
                     ].map((stat, index) => (
-                      <div key={index} className="flex justify-between items-center">
+                      <div
+                        key={index}
+                        className="flex justify-between items-center"
+                      >
                         <span className="text-gray-600">{stat.label}</span>
-                        <span className="text-xl font-bold text-reguard-red">{stat.metric}</span>
+                        <span className="text-xl font-bold text-reguard-red">
+                          {stat.metric}
+                        </span>
                       </div>
                     ))}
                   </div>
                 </CardContent>
-              </Card>
+              </Card> */}
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-white">
+      {/* <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -415,20 +439,25 @@ const Contact = () => {
             {[
               {
                 question: 'How quickly can ReguardAI be implemented?',
-                answer: 'Most implementations are completed within 2-4 weeks, depending on your existing infrastructure and requirements.'
+                answer:
+                  'Most implementations are completed within 2-4 weeks, depending on your existing infrastructure and requirements.',
               },
               {
-                question: 'What types of financial institutions do you work with?',
-                answer: 'We work with banks, NBFCs, fintech companies, payment processors, and digital lending platforms across India.'
+                question:
+                  'What types of financial institutions do you work with?',
+                answer:
+                  'We work with banks, NBFCs, fintech companies, payment processors, and digital lending platforms across India.',
               },
               {
                 question: 'Is ReguardAI compliant with Indian regulations?',
-                answer: 'Yes, our platform is fully compliant with RBI, SEBI, and other Indian financial regulations, with automatic updates for regulatory changes.'
+                answer:
+                  'Yes, our platform is fully compliant with RBI, SEBI, and other Indian financial regulations, with automatic updates for regulatory changes.',
               },
               {
                 question: 'What kind of support do you provide?',
-                answer: 'We provide 24/7 technical support, dedicated account management, and ongoing compliance consulting to ensure your success.'
-              }
+                answer:
+                  'We provide 24/7 technical support, dedicated account management, and ongoing compliance consulting to ensure your success.',
+              },
             ].map((faq, index) => (
               <motion.div
                 key={index}
@@ -439,7 +468,9 @@ const Contact = () => {
               >
                 <Card className="bg-gray-50 border border-gray-200">
                   <CardContent className="p-6">
-                    <h3 className="text-lg font-semibold text-reguard-navy mb-3">{faq.question}</h3>
+                    <h3 className="text-lg font-semibold text-reguard-navy mb-3">
+                      {faq.question}
+                    </h3>
                     <p className="text-gray-600">{faq.answer}</p>
                   </CardContent>
                 </Card>
@@ -447,9 +478,9 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact
