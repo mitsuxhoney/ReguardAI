@@ -5,6 +5,7 @@ import { Button } from './ui/button'
 import { AnimatedBeam } from '@/components/ui/animated-beam'
 import { cn } from '../lib/utils'
 import { RainbowButton } from './ui/rainbow-button'
+import { GridPattern } from "@/components/ui/grid-pattern";
 
 const Icons = {
   openai: () => (
@@ -55,8 +56,17 @@ const Hero = () => {
   return (
     <section className="pt-20 pb-16 bg-gradient-to-b from-white via-gray-50/30 to-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
-
+      {/* <div className="absolute inset-0 bg-grid-gray-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" /> */}
+        <GridPattern
+  width={30}
+  height={30}
+  x={-1}
+  y={-1}
+  strokeDasharray="4 2"
+  className={cn(
+    "[mask-image:radial-gradient(1500px_circle_at_center,transparent,white)]"
+  )}
+/>
       <div className="max-w-6xl mx-auto px-6 lg:px-8 relative">
         <div className="text-center max-w-4xl mx-auto">
           {/* Social Proof Badge */}
