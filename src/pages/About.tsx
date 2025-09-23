@@ -1,35 +1,38 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Users, Target, Award, Globe } from 'lucide-react';
-import { Button } from '../components/ui/button';
-import { Card, CardContent } from '../components/ui/card';
-import CTA from '@/components/CTA';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { ArrowRight, Users, Target, Award, Globe } from 'lucide-react'
+import { Button } from '../components/ui/button'
+import { Card, CardContent } from '../components/ui/card'
+import CTA from '@/components/CTA'
 
 const About = () => {
   const stats = [
     { value: '₹2000Cr+', label: 'Fraud Prevented', icon: Award },
     { value: '500+', label: 'Institutions Protected', icon: Users },
     { value: '99.8%', label: 'Accuracy Rate', icon: Target },
-    { value: '15+', label: 'Countries Served', icon: Globe }
-  ];
+    { value: '15+', label: 'Countries Served', icon: Globe },
+  ]
 
   const members = [
     {
       name: 'Rajesh Kumar',
       role: 'CEO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      image:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
       // bio: 'Former VP at HDFC Bank with 15+ years in financial compliance'
     },
     {
       name: 'Priya Sharma',
       role: 'CTO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face',
+      image:
+        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face',
       // bio: 'AI/ML expert, former Google engineer specializing in fraud detection'
     },
     {
       name: 'Amit Patel',
       role: 'Head of Compliance',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=500&fit=crop&crop=face',
+      image:
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&h=500&fit=crop&crop=face',
       // bio: 'Former RBI regulatory expert with deep knowledge of Indian financial laws'
     },
     {
@@ -40,19 +43,22 @@ const About = () => {
     {
       name: 'Rajesh Kumar',
       role: 'CEO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      image:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
       // bio: 'Former VP at HDFC Bank with 15+ years in financial compliance'
     },
     {
       name: 'Priya Sharma',
       role: 'CTO & Co-Founder',
-      image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face',
+      image:
+        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&h=400&fit=crop&crop=face',
       // bio: 'AI/ML expert, former Google engineer specializing in fraud detection'
     },
     {
       name: 'Amit Patel',
       role: 'Head of Compliance',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+      image:
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
       // bio: 'Former RBI regulatory expert with deep knowledge of Indian financial laws'
     },
     {
@@ -60,7 +66,7 @@ const About = () => {
       role: 'Backend Dev',
       image: 'https://avatars.githubusercontent.com/u/31113941?v=4',
     },
-  ];
+  ]
 
   return (
     <div className="min-h-screen bg-white">
@@ -82,7 +88,9 @@ const About = () => {
               <span className="text-reguard-red">Financial Future</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              Founded in 2020, ReguardAI is India's leading AI-powered compliance platform, trusted by 500+ financial institutions to prevent fraud and ensure regulatory compliance.
+              Founded in 2025, ReguardAI is India's leading AI-powered
+              compliance platform, trusted by 500+ financial institutions to
+              prevent fraud and ensure regulatory compliance.
             </p>
           </motion.div>
         </div>
@@ -105,7 +113,9 @@ const About = () => {
                     <div className="inline-flex p-3 rounded-full bg-reguard-red/10 mb-4">
                       <stat.icon className="h-6 w-6 text-reguard-red" />
                     </div>
-                    <div className="text-3xl font-bold text-reguard-navy mb-2">{stat.value}</div>
+                    <div className="text-3xl font-bold text-reguard-navy mb-2">
+                      {stat.value}
+                    </div>
                     <div className="text-gray-600">{stat.label}</div>
                   </CardContent>
                 </Card>
@@ -129,23 +139,34 @@ const About = () => {
                 Our Mission
               </h2>
               <p className="text-xl text-gray-600 mb-6">
-                To democratize advanced fraud prevention technology for India's financial ecosystem, making sophisticated AI-powered compliance accessible to institutions of all sizes.
+                To democratize advanced fraud prevention technology for India's
+                financial ecosystem, making sophisticated AI-powered compliance
+                accessible to institutions of all sizes.
               </p>
               <p className="text-lg text-gray-600 mb-8">
-                We believe that every financial institution, from the largest banks to emerging fintech startups, deserves access to world-class fraud prevention technology that protects their customers and ensures regulatory compliance.
+                We believe that every financial institution, from the largest
+                banks to emerging fintech startups, deserves access to
+                world-class fraud prevention technology that protects their
+                customers and ensures regulatory compliance.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-reguard-red rounded-full mr-3"></div>
-                  <span className="text-gray-700">Prevent financial fraud before it happens</span>
+                  <span className="text-gray-700">
+                    Prevent financial fraud before it happens
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-reguard-red rounded-full mr-3"></div>
-                  <span className="text-gray-700">Ensure seamless regulatory compliance</span>
+                  <span className="text-gray-700">
+                    Ensure seamless regulatory compliance
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-2 h-2 bg-reguard-red rounded-full mr-3"></div>
-                  <span className="text-gray-700">Protect India's financial ecosystem</span>
+                  <span className="text-gray-700">
+                    Protect India's financial ecosystem
+                  </span>
                 </div>
               </div>
             </motion.div>
@@ -214,7 +235,9 @@ const About = () => {
 
       <section className="py-12 md:py-32">
         <div className="mx-auto max-w-3xl px-8 lg:px-0">
-          <h2 className="mb-8 text-4xl font-bold md:mb-16 lg:text-5xl">Our team</h2>
+          <h2 className="mb-8 text-4xl font-bold md:mb-16 lg:text-5xl">
+            Our team
+          </h2>
 
           <div>
             {/* <h3 className="mb-6 text-lg font-medium">Leadership</h3> */}
@@ -222,23 +245,32 @@ const About = () => {
               {members.map((member, index) => (
                 <div key={index}>
                   <div className="flex items-center justify-center">
-                  <div className="bg-background  size-28 rounded-full border p-0.5 shadow shadow-zinc-950/5">
-                    <img className="aspect-square rounded-full object-cover" src={member.image} alt={member.name} height="500" width="500" loading="lazy" />
+                    <div className="bg-background  size-28 rounded-full border p-0.5 shadow shadow-zinc-950/5">
+                      <img
+                        className="aspect-square rounded-full object-cover"
+                        src={member.image}
+                        alt={member.name}
+                        height="500"
+                        width="500"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                  </div>
-                  <span className="mt-2 text-center block text-sm">{member.name}</span>
-                  <span className="text-muted-foreground text-center block text-xs">{member.role}</span>
+                  <span className="mt-2 text-center block text-sm">
+                    {member.name}
+                  </span>
+                  <span className="text-muted-foreground text-center block text-xs">
+                    {member.role}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
-
       {/* Values Section */}
-      <section className="py-24 bg-gray-50">
+      {/* <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -284,7 +316,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       {/* <section className="py-24 bg-reguard-navy">
@@ -319,7 +351,7 @@ const About = () => {
       </section> */}
       <CTA />
     </div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

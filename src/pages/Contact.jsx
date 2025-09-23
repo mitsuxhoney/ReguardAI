@@ -200,7 +200,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-white">
+      {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactInfo.map((info, index) => (
@@ -229,7 +229,7 @@ const Contact = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Form & Demo CTA */}
       <section className="py-24 bg-gray-50">
@@ -334,18 +334,49 @@ const Contact = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold"
+                      className="w-full text-xl bg-red-600 hover:bg-red-700 text-white py-6 px-6 rounded-lg font-semibold transition-colors flex items-center justify-center space-x-2"
                     >
-                      <Send className="mr-2 h-5 w-5" />
-                      Send Message
+                      <Send size={32} />
+                      <span>Send Message</span>
                     </Button>
                   </form>
                 </CardContent>
               </Card>
             </motion.div>
 
-            {/* Demo CTA */}
+
+<div className="flex flex-col gap-6">
+          {contactInfo.map((info, index) => (
             <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                <CardContent className="flex items-start gap-4 p-6">
+                  <div className="flex-shrink-0 p-3 rounded-full bg-reguard-red/20">
+                    <info.icon className="h-6 w-6 text-reguard-red" />
+                  </div>
+                  <div className="flex flex-col">
+                    <h4 className="font-semibold text-lg mb-1">
+                      {info.title}
+                    </h4>
+                    <p className="text-gray-800 font-medium mb-1">
+                      {info.details}
+                    </p>
+                    <p className="text-sm text-gray-800">{info.subtitle}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+
+            {/* Demo CTA */}
+            {/* <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -354,6 +385,9 @@ const Contact = () => {
             >
               <Card className="bg-reguard-navy text-white">
                 <CardContent className="p-8">
+                  <div>
+
+                  <div>
                   <h3 className="text-2xl font-bold mb-4">Book a Live Demo</h3>
                   <p className="text-blue-100 mb-6">
                     See ReguardAI in action with a personalized demo tailored to
@@ -383,35 +417,12 @@ const Contact = () => {
                   >
                     Schedule Demo Now
                   </Button>
+                </div>
+                  </div>
                 </CardContent>
               </Card>
 
-              {/* <Card className="bg-white border border-gray-200">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-bold text-reguard-navy mb-4">
-                    Why Choose ReguardAI?
-                  </h3>
-                  <div className="space-y-4">
-                    {[
-                      { metric: '₹2000Cr+', label: 'Fraud Prevented' },
-                      { metric: '500+', label: 'Institutions Protected' },
-                      { metric: '99.8%', label: 'Detection Accuracy' },
-                      { metric: '24/7', label: 'Monitoring Coverage' },
-                    ].map((stat, index) => (
-                      <div
-                        key={index}
-                        className="flex justify-between items-center"
-                      >
-                        <span className="text-gray-600">{stat.label}</span>
-                        <span className="text-xl font-bold text-reguard-red">
-                          {stat.metric}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card> */}
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
       </section>

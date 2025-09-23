@@ -10,6 +10,8 @@ import {
 } from 'lucide-react'
 import { cn } from '../lib/utils'
 import { AnimatedBeam } from './ui/animated-beam'
+import ReguardAILogo from '@/assets/ReguardAI.svg'
+
 const Circle = forwardRef(({ className, children }, ref) => {
   return (
     <div
@@ -118,8 +120,8 @@ const FraudSignals = () => {
               </div>
               {/* ReguardAI Center */}
 
-              <Circle ref={reguardAIRef} className="size-24 relative z-10">
-                <Shield className="h-10 w-10" />
+              <Circle ref={reguardAIRef} className="size-28 relative z-10">
+                <img src={ReguardAILogo} alt="" />
               </Circle>
 
               {/* Client App (Right) */}

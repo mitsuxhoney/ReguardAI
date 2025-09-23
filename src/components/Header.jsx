@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { ArrowRight, Menu, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from './ui/button'
 import { cn } from '../lib/utils'
+import { RainbowButton } from './ui/rainbow-button'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isButtonScrolled, setIsButtonScrolled] = useState(false)
+
   const location = useLocation()
   const isHomePage = location.pathname === '/'
 
   React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      setIsButtonScrolled(window.scrollY > 450)
     }
 
     const handleSmoothScroll = (e) => {
@@ -195,16 +199,30 @@ const Header = () => {
                 Sign In
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
-                className="bg-reguard-red hover:bg-red-700 text-white px-6 py-2 transition-all duration-300 shadow-lg hover:shadow-xl border-0 font-medium"
+            {isButtonScrolled ? (
+              <RainbowButton
+                className="px-10 py-5 text-sm text-white font-semibold shadow-lg hover:shadow-xl group tracking-widest"
                 onClick={() =>
                   window.open('https://cal.com/reguardai.com/secret', '_blank')
                 }
+                size="lg"
               >
-                Schedule Demo
-              </Button>
-            </motion.div>
+                SCHEDULE DEMO
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </RainbowButton>
+            ) : (
+              <RainbowButton
+                variant="outline"
+                className="px-10 py-5 text-sm text-black font-semibold shadow-lg hover:shadow-xl group tracking-widest"
+                onClick={() =>
+                  window.open('https://cal.com/reguardai.com/secret', '_blank')
+                }
+                size="lg"
+              >
+                SCHEDULE DEMO
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </RainbowButton>
+            )}
           </div>
 
           <motion.button
