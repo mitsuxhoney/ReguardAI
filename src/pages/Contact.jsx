@@ -4,7 +4,16 @@ import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react'
 import { Button } from '../components/ui/button'
 import { Card, CardContent } from '../components/ui/card'
 import { createClient } from '@supabase/supabase-js'
+import { Input } from '@/components/ui/input'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { toast } from 'sonner'
+import { Textarea } from '@/components/ui/textarea'
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -22,17 +31,16 @@ const Contact = () => {
     form_source: '',
   })
 
-  const handleInputChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const handleInputChange = (valueOrEvent, name) => {
+    if (typeof valueOrEvent === 'string' && name) {
+      // For Select (value passed directly)
+      setFormData((prev) => ({ ...prev, [name]: valueOrEvent }))
+    } else {
+      // For native inputs/textareas
+      const e = valueOrEvent
+      setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+    }
   }
-
   const validateForm = () => {
     const errors = []
 
@@ -75,7 +83,7 @@ const Contact = () => {
     return errors
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     // Validate form
@@ -242,90 +250,78 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Full Name *
-                        </label>
-                        <input
+                        <Input
                           type="text"
                           name="full_name"
                           required
                           value={formData.full_name}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                          placeholder="Your name"
+                          placeholder="Full Name *"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
-                        </label>
-                        <input
+                        <Input
                           type="email"
                           name="email"
                           required
                           value={formData.email}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                          placeholder="you@company.com"
+                          placeholder="Email Address *"
                         />
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Company Name *
-                        </label>
-                        <input
+                        <Input
                           type="text"
                           name="company"
                           required
                           value={formData.company}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                          placeholder="Your company"
+                          placeholder="Company Name *"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Phone Number *
-                        </label>
-                        <input
+                        <Input
                           type="tel"
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
-                          placeholder="+91 98765 43210"
+                          placeholder="Phone Number*"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        What are you looking for ? *
-                      </label>
-                      <select
+                      <Select
                         name="question"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
                         required
                         value={formData.question}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-reguard-red focus:border-transparent transition-all"
+                        onValueChange={(value) =>
+                          handleInputChange(value, 'question')
+                        }
                       >
-                        <option value="">Select a subject</option>
-                        {subjects.map((subject) => (
-                          <option key={subject} value={subject}>
-                            {subject}
-                          </option>
-                        ))}
-                      </select>
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="What are you looking for ?*" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {subjects.map((subject) => (
+                            <SelectItem key={subject} value={subject}>
+                              {subject}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Message *
-                      </label>
-                      <textarea
+                      <Textarea
                         name="message"
                         required
                         rows={5}
