@@ -14,6 +14,7 @@ const ReportDownload = () => {
     firstName: '',
     lastName: '',
     company: '',
+    designation: '',
     email: '',
     country: ''
   });
@@ -365,104 +366,121 @@ const ReportDownload = () => {
                               </button>
                             </div>
 
-                            <div className="space-y-3">
+                            <div className="space-y-5">
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
+                                  {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                     First Name <span className="text-red-600">*</span>
-                                  </label>
+                                  </label> */}
                                   <input
                                     type="text"
                                     name="firstName"
                                     required
                                     value={formData.firstName}
                                     onChange={handleInputChange}
-                                    className="w-full h-8 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="John"
+                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
+                                    placeholder="First Name"
                                     autoComplete="given-name"
                                   />
                                 </div>
                                 <div>
-                                  <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
+                                  {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                     Last Name <span className="text-red-600">*</span>
-                                  </label>
+                                  </label> */}
                                   <input
                                     type="text"
                                     name="lastName"
                                     required
                                     value={formData.lastName}
                                     onChange={handleInputChange}
-                                    className="w-full h-8 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                    placeholder="Doe"
+                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
+                                    placeholder="Last Name"
                                     autoComplete="family-name"
                                   />
                                 </div>
                               </div>
 
-                              <div>
-                                <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                   Company Name <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="text"
-                                  name="company"
-                                  required
-                                  value={formData.company}
-                                  onChange={handleInputChange}
-                                  className="w-full h-8 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                  placeholder="Your Company"
-                                  autoComplete="organization"
-                                />
+                                </label> */}
+                                <div>
+                                  <input
+                                    type="text"
+                                    name="company"
+                                    required
+                                    value={formData.company}
+                                    onChange={handleInputChange}
+                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
+                                    placeholder="Company Name"
+                                    autoComplete="organization"
+                                  />
+                                </div>
+                                <div>
+                                  <input
+                                    type="text"
+                                    name="designation"
+                                    required
+                                    value={formData.company}
+                                    onChange={handleInputChange}
+                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
+                                    placeholder="Designation"
+                                    autoComplete="organization"
+                                  />
+                                </div>
                               </div>
 
-                              <div>
-                                <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                   Work Email <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="email"
-                                  name="email"
-                                  required
-                                  value={formData.email}
-                                  onChange={handleInputChange}
-                                  className="w-full h-8 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
-                                  placeholder="you@company.com"
-                                  autoComplete="email"
-                                />
-                              </div>
-
-                              <div>
-                                <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
+                                </label> */}
+                                <div>
+                                  <input
+                                    type="email"
+                                    name="email"
+                                    required
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className="w-full h-12 px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all placeholder-gray-400 text-sm shadow-sm"
+                                    placeholder="Work Email"
+                                    autoComplete="email"
+                                  />
+                                </div>
+                                <div>
+                                  {/* <label className="block text-sm font-semibold text-gray-600 mb-2 tracking-wide">
                                   Country <span className="text-red-600">*</span>
-                                </label>
-                                <select
-                                  name="country"
-                                  required
-                                  value={formData.country}
-                                  onChange={handleInputChange}
-                                  className="w-full h-8 px-4 py-0 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all text-sm shadow-sm"
-                                >
-                                  <option value="">Select your country</option>
-                                  {countries.map((country) => (
-                                    <option key={country} value={country}>
-                                      {country}
-                                    </option>
-                                  ))}
-                                </select>
+                                  </label> */}
+                                  <select
+                                    name="country"
+                                    required
+                                    value={formData.country}
+                                    onChange={handleInputChange}
+                                    className="w-full h-12 px-4 py-0 border border-gray-200 rounded-lg bg-gray-50 focus:bg-white focus:ring-2 focus:ring-red-600 focus:border-red-600 transition-all text-sm shadow-sm"
+                                  >
+                                    <option value="">Country</option>
+                                    {countries.map((country) => (
+                                      <option key={country} value={country}>
+                                        {country}
+                                      </option>
+                                    ))}
+                                  </select>
+                                </div>
                               </div>
-                              <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 text-xs text-blue-800 mt-4">
-                                <div className="flex items-center gap-2 font-semibold mb-1">
-                                  <FileText className="h-3 w-3" />
+                              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 mt-4">
+                                <div className="flex items-center gap-2 font-semibold mb-2">
+                                  <FileText className="h-4 w-4" />
                                   You'll receive:
                                 </div>
-                                <div className="text-xs text-blue-700 ml-5">
-                                  Instant download    •    150+ pages    •    Quarterly updates
-                                </div>
+                                <ul className="space-y-1 ml-6 list-disc">
+                                  <li>Instant download link via email</li>
+                                  <li>150+ page comprehensive report</li>
+                                  <li>Quarterly fraud trend updates</li>
+                                </ul>
                               </div>
                               <button
                                 type="button"
                                 onClick={handleSubmit}
-                                className="w-full bg-red-600 hover:bg-red-700 text-white py-2 text-base font-semibold rounded-lg shadow-md transition-all hover:shadow-lg"
+                                className="w-full bg-red-600 hover:bg-red-700 text-white py-3 text-base font-semibold rounded-lg shadow-md transition-all hover:shadow-lg"
                               >
                                 Download Report Now
                               </button>
