@@ -134,7 +134,7 @@ const Footer = () => {
         </div>
         
   {/* Second Row - API Links */}
-        <div className="border-t border-slate-700 pt-12">
+        <div className="border-t mt-12 border-slate-700 pt-12">
           <div className="grid lg:grid-cols-4 gap-x-14 gap-y-12">
             
             {/* KYC APIs */}
