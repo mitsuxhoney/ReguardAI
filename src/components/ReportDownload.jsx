@@ -368,7 +368,7 @@ const ReportDownload = () => {
                 </p>
               </div>
 
-              <Card className="overflow-hidden bg-white shadow-xl border-0 max-w-5xl mx-auto">
+              <Card className="overflow-hidden bg-white shadow-xl border-0 max-w-5xl mx-auto md:pb-0">
                 <CardContent className="p-0">
                   <div className="lg:flex lg:items-center">
                     <div className="lg:w-2/5 relative">
@@ -399,180 +399,9 @@ const ReportDownload = () => {
                         </div>
                       </div>
                     </div>
-
-                    {/* right */}
-                    {/* <div className="lg:w-3/5 p-8 lg:p-12">
-                      <motion.div
-                        className="relative w-full h-full"
-                        initial={false}
-                        animate={{ rotateY: isModalOpen ? 180 : 0 }}
-                        transition={{ duration: 0.6, ease: "easeInOut" }}
-                        style={{ transformStyle: "preserve-3d" }}
-                      >
-
-                        <div className="lg:w-3/5 p-8 lg:p-5">
-                          <form onSubmit={handleSubmit} className="space-y-5">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                              <div>
-                                <label className="block text-sm font-semibold text-gray-600 mb-1 tracking-wide">
-                                  First Name <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="text"
-                                  name="firstName"
-                                  required
-                                  value={formData.firstName}
-                                  onChange={handleInputChange}
-                                  className="w-full h-8 px-3 py-2 border border-gray-200 rounded-md bg-gray-50 focus:bg-white focus:ring-2 focus:ring-reguard-red focus:border-reguard-red transition-all placeholder-gray-400 text-sm shadow-sm"
-                                  placeholder="John"
-                                  autoComplete="given-name"
-                                />
-                              </div>
-                              <div>
-                                <label className="block text-sm font-semibold text-gray-600 mb-1 tracking-wide">
-                                  Last Name <span className="text-red-600">*</span>
-                                </label>
-                                <input
-                                  type="text"
-                                  name="lastName"
-                                  required
-                                  value={formData.lastName}
-                                  onChange={handleInputChange}
-                                  className="w-full h-8 px-3 py-2 border border-gray-200 rounded-md bg-gray-50 focus:bg-white focus:ring-2 focus:ring-reguard-red focus:border-reguard-red transition-all placeholder-gray-400 text-sm shadow-sm"
-                                  placeholder="Doe"
-                                  autoComplete="family-name"
-                                />
-                              </div>
-                            </div>
-
-                            <div>
-                              <label className="block text-sm font-semibold text-gray-600 mb-1 tracking-wide">
-                                Company Name <span className="text-red-600">*</span>
-                              </label>
-                              <input
-                                type="text"
-                                name="company"
-                                required
-                                value={formData.company}
-                                onChange={handleInputChange}
-                                className="w-full h-8 px-3 py-2 border border-gray-200 rounded-md bg-gray-50 focus:bg-white focus:ring-2 focus:ring-reguard-red focus:border-reguard-red transition-all placeholder-gray-400 text-sm shadow-sm"
-                                placeholder="Your Company"
-                                autoComplete="organization"
-                              />
-                            </div>
-
-                            <div>
-                              <label className="block text-sm font-semibold text-gray-600 mb-1 tracking-wide">
-                                Work Email <span className="text-red-600">*</span>
-                              </label>
-                              <input
-                                type="email"
-                                name="email"
-                                required
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                className="w-full h-8 px-3 py-2 border border-gray-200 rounded-md bg-gray-50 focus:bg-white focus:ring-2 focus:ring-reguard-red focus:border-reguard-red transition-all placeholder-gray-400 text-sm shadow-sm"
-                                placeholder="you@company.com"
-                                autoComplete="email"
-                              />
-                            </div>
-
-                            <div>
-                              <label className="block text-sm font-semibold text-gray-600 mb-1 tracking-wide">
-                                Country <span className="text-red-600">*</span>
-                              </label>
-                              <select
-                                name="country"
-                                required
-                                value={formData.country}
-                                onChange={handleInputChange}
-                                className="w-full h-8 px-3 py-0 border border-gray-200 rounded-md bg-gray-50 focus:bg-white focus:ring-2 focus:ring-reguard-red focus:border-reguard-red transition-all text-sm shadow-sm"
-                              >
-                                <option value="">Select your country</option>
-                                {countries.map((country) => (
-                                  <option key={country} value={country}>
-                                    {country}
-                                  </option>
-                                ))}
-                              </select>
-                            </div>
-
-                            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 text-xs text-blue-800 mt-2">
-                              <div className="flex items-center gap-2 font-semibold mb-1">
-                                <FileText className="h-4 w-4" />
-                                You'll receive:
-                              </div>
-                              <ul className="space-y-1 ml-6 list-disc">
-                                <li>Instant download link via email</li>
-                                <li>150+ page comprehensive report</li>
-                                <li>Quarterly fraud trend updates</li>
-                              </ul>
-                            </div>
-
-                            <Button
-                              type="submit"
-                              className="w-full bg-reguard-red hover:bg-red-700 text-white py-3 text-base font-semibold rounded-md shadow-md transition-all"
-                            >
-                              Download Report Now
-                            </Button>
-                          </form>
-
-                          <p className="text-xs text-gray-500 text-center mt-4">
-                            By downloading, you agree to receive communications from ReguardAI. Unsubscribe anytime.
-                          </p>
-                        </div>
-
-                        <div className="lg:w-3/5 p-8 lg:p-12">
-                          <h3 className="text-2xl lg:text-3xl font-bold text-reguard-navy mb-6">
-                            Essential Reading for Financial Leaders
-                          </h3>
-                          <div className="grid gap-4 mb-8">
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                                <TrendingUp className="h-4 w-4 text-reguard-red" />
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900">Latest Fraud Patterns</h4>
-                                <p className="text-gray-600 text-sm">Emerging threats across global markets</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                                <Shield className="h-4 w-4 text-reguard-red" />
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900">Defense Strategies</h4>
-                                <p className="text-gray-600 text-sm">Proven methods to protect your institution</p>
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-3">
-                              <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center">
-                                <FileText className="h-4 w-4 text-reguard-red" />
-                              </div>
-                              <div>
-                                <h4 className="font-semibold text-gray-900">Regulatory Updates</h4>
-                                <p className="text-gray-600 text-sm">Compliance across jurisdictions</p>
-                              </div>
-                            </div>
-                          </div>
-                          <Button
-                            onClick={() => setIsModalOpen(true)}
-                            size="lg"
-                            className="w-full bg-reguard-red hover:bg-red-700 text-white py-4 text-lg font-semibold group shadow-lg hover:shadow-xl transition-all duration-300"
-                          >
-                            <Download className="mr-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-                            Download Free Report
-                          </Button>
-                          <p className="text-xs text-gray-500 text-center mt-3">
-                            No spam. Unsubscribe anytime. Your data is secure.
-                          </p>
-                        </div>
-                      </motion.div>
-                    </div> */}
-
                     {/* Right side - Flippable content */}
                     <div className="lg:w-3/5 relative">
-                      <div className="relative w-full h-full perspective-1000 min-h-[540px]">
+                      <div className={`relative w-full h-full perspective-1000 min-h-[540px] md:min-h-[540px] ${isModalOpen ? 'sm:min-h-full' : 'sm:min-h-[540px]'}`}>
                         <motion.div
                           className="relative w-full h-full"
                           initial={false}
@@ -652,8 +481,8 @@ const ReportDownload = () => {
 
                           {/* Back side - Form */}
                           <div
-                            className="absolute inset-0 w-full h-full backface-hidden p-8 lg:px-10 lg:py-8"
-                            style={{
+                          className={`backface-hidden p-8 lg:px-10 lg:py-8 ${isModalOpen ? 'sm:relative sm:h-auto sm:inset-auto lg:absolute lg:inset-0 lg:h-full' : 'absolute inset-0 w-full h-full'}`}
+                          style={{
                               backfaceVisibility: 'hidden',
                               WebkitBackfaceVisibility: 'hidden',
                               transform: 'rotateY(180deg)',
@@ -772,7 +601,7 @@ const ReportDownload = () => {
                                   <FileText className="h-4 w-4" />
                                   You'll receive:
                                 </div>
-                                <ul className="space-y-1 ml-6 list-disc">
+                                <ul className=" space-y-1 ml-6 list-disc">
                                   <li>Instant download link via email</li>
                                   <li>150+ page comprehensive report</li>
                                   <li>Quarterly fraud trend updates</li>
