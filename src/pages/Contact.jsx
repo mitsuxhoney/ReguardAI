@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-
+import HeroBanner from '@/assets/BannerForContactHighRes.png'
 import { toast } from 'sonner'
 import { Textarea } from '@/components/ui/textarea'
 
@@ -178,9 +178,7 @@ const Contact = () => {
       {/* Hero Section */}
       <section
         className="relative min-h-[500px] pt-64 pb-16 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/src/assets/BannerForContactHighRes.png')",
-        }}
+        style={{ backgroundImage: `url(${HeroBanner})` }}
       >
         <div className="absolute inset-0 w-full" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
