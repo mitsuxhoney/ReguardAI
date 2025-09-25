@@ -193,14 +193,14 @@ const Header = () => {
           </nav>
 
           <div className="hidden lg:flex items-center space-x-4">
-            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            {/* <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
               <Button
                 variant="ghost"
                 className="text-reguard-navy hover:text-reguard-red hover:bg-red-50 border border-transparent hover:border-red-200 transition-all duration-300 font-medium"
               >
                 Sign In
               </Button>
-            </motion.div>
+            </motion.div> */}
             {isButtonScrolled ? (
               <RainbowButton
                 className="px-10 py-5 text-sm text-white font-semibold shadow-lg hover:shadow-xl group tracking-widest"
@@ -251,42 +251,47 @@ const Header = () => {
             <div className="px-6 py-6 space-y-4">
               <Link
                 to="/"
+                onClick={() => setIsMenuOpen(false)}
                 className="block text-reguard-navy hover:text-reguard-red transition-colors py-3 border-b border-gray-100 font-medium"
               >
                 Home
               </Link>
               <Link
                 to="/about"
+                onClick={() => setIsMenuOpen(false)}
                 className="block text-reguard-navy hover:text-reguard-red transition-colors py-3 border-b border-gray-100 font-medium"
               >
                 About
               </Link>
               <Link
                 to="/solutions"
+                onClick={() => setIsMenuOpen(false)}
                 className="block text-reguard-navy hover:text-reguard-red transition-colors py-3 border-b border-gray-100 font-medium"
               >
                 Solutions
               </Link>
               <Link
                 to="/industries"
+                onClick={() => setIsMenuOpen(false)}
                 className="block text-reguard-navy hover:text-reguard-red transition-colors py-3 border-b border-gray-100 font-medium"
               >
                 Industries
               </Link>
               <Link
                 to="/contact"
+                onClick={() => setIsMenuOpen(false)}
                 className="block text-reguard-navy hover:text-reguard-red transition-colors py-3 border-b border-gray-100 font-medium"
               >
                 Contact
               </Link>
 
               <div className="pt-4 space-y-3">
-                <Button
+                {/* <Button
                   variant="ghost"
                   className="w-full justify-start text-reguard-navy hover:bg-red-50 hover:text-reguard-red font-medium"
                 >
                   Sign In
-                </Button>
+                </Button> */}
                 <Button
                   className="w-full bg-reguard-red hover:bg-red-700 text-white font-medium"
                   onClick={() =>

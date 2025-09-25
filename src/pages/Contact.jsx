@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+
 import { toast } from 'sonner'
 import { Textarea } from '@/components/ui/textarea'
 
@@ -175,30 +176,39 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
+      <section
+        className="relative min-h-[500px] pt-64 pb-16 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/src/assets/BannerForContactHighRes.png')",
+        }}
+      >
+        <div className="absolute inset-0 w-full" />
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center max-w-4xl mx-auto"
+            className=" max-w-4xl"
           >
-            <div className="inline-flex items-center px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-800 mb-6">
-              Get In Touch
+            <div className="flex justify-start items-center">
+              <div className=" px-4 py-2 bg-green-50 border border-green-200 rounded-full text-sm font-medium text-green-800 mb-6">
+                Get In Touch
+              </div>
             </div>
+            {/* text-reguard-navy */}
             <h1 className="text-5xl lg:text-6xl font-bold text-reguard-navy mb-6">
               Contact Our
               <br />
               <span className="text-reguard-red">Expert Team</span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed mb-8">
+            {/* text-gray-600 */}
+            <p className="text-xl text-gray-600 leading-relaxed mb-8 w-[70%]">
               Ready to protect your institution from fraud? Our compliance
               experts are here to help you get started with ReguardAI.
             </p>
           </motion.div>
         </div>
       </section>
-
       {/* Contact Info Cards */}
       {/* <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -230,7 +240,6 @@ const Contact = () => {
           </div>
         </div>
       </section> */}
-
       {/* Contact Form & Demo CTA */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -344,36 +353,34 @@ const Contact = () => {
               </Card>
             </motion.div>
 
-
-<div className="flex flex-col gap-6">
-          {contactInfo.map((info, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300">
-                <CardContent className="flex items-start gap-4 p-6">
-                  <div className="flex-shrink-0 p-3 rounded-full bg-reguard-red/20">
-                    <info.icon className="h-6 w-6 text-reguard-red" />
-                  </div>
-                  <div className="flex flex-col">
-                    <h4 className="font-semibold text-lg mb-1">
-                      {info.title}
-                    </h4>
-                    <p className="text-gray-800 font-medium mb-1">
-                      {info.details}
-                    </p>
-                    <p className="text-sm text-gray-800">{info.subtitle}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
+            <div className="flex flex-col gap-6">
+              {contactInfo.map((info, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-300">
+                    <CardContent className="flex items-start gap-4 p-6">
+                      <div className="flex-shrink-0 p-3 rounded-full bg-reguard-red/20">
+                        <info.icon className="h-6 w-6 text-reguard-red" />
+                      </div>
+                      <div className="flex flex-col">
+                        <h4 className="font-semibold text-lg mb-1">
+                          {info.title}
+                        </h4>
+                        <p className="text-gray-800 font-medium mb-1">
+                          {info.details}
+                        </p>
+                        <p className="text-sm text-gray-800">{info.subtitle}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
 
             {/* Demo CTA */}
             {/* <motion.div
@@ -426,7 +433,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
       {/* FAQ Section */}
       {/* <section className="py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
