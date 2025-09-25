@@ -3,16 +3,6 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook } from 'luc
 import { Link } from 'react-router-dom';
 
 
-const navigate = (url) => {
-  console.log('Navigating to:', url)
-  // In a real app, this would be your router navigation
-  // For demo purposes, we'll just log the URL
-}
-
-const handleAPIClick = (apiId, category) => {
-  const externalLink = process.env.REACT_APP_EXTERNAL_LINK || 'https://api.reguardai.com'
-  navigate(`${externalLink}/apis/${category}/${apiId}`)
-}
 
 
 const Footer = () => {
@@ -37,19 +27,6 @@ const Footer = () => {
     { id: 'sanctions-screening', name: 'Sanctions Screening API' },
     { id: 'pep-screening', name: 'PEP Screening API' }
   ]
-  const Link = ({ to, className, children, onClick }) => (
-    <a 
-      href={to} 
-      className={className}
-      onClick={(e) => {
-        e.preventDefault()
-        if (onClick) onClick()
-        else console.log('Navigate to:', to)
-      }}
-    >
-      {children}
-    </a>
-  )
   return (
     <footer className="bg-reguard-navy text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
@@ -198,7 +175,7 @@ const Footer = () => {
               © 2025 ReguardAI. All rights reserved. | Compliant with RBI, SEBI, and Indian data protection regulations.
             </p>
             <div className="flex space-x-8 mt-4 md:mt-0">
-              <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+              <Link to="/privacy-policy" className="text-slate-400 hover:text-white text-sm transition-colors">Privacy Policy</Link>
               <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Terms of Service</a>
               <a href="#" className="text-slate-400 hover:text-white text-sm transition-colors">Security</a>
             </div>

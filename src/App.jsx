@@ -25,6 +25,7 @@ import { Toaster } from 'sonner'
 import FraudSignals from './components/FraudSignals'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopButton from './components/ScrollToTopButton'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 // Home Page Component
 const HomePage = () => (
@@ -82,6 +83,7 @@ function App() {
             element={<DigitalLending />}
           />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
         <ScrollToTopButton />
