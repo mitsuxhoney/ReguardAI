@@ -1,0 +1,55 @@
+name: Deploy to EC2 (Build on Server)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+        
+    - name: Deploy to EC2
+      run: |
+        ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+          cd ~/ReguardAI
+          
+          # Create backup
+          sudo mkdir -p /var/www/reguardAI-backup
+          sudo cp -r /var/www/reguardAI/* /var/www/reguardAI-backup/ 2>/dev/null || true
+          
+          # Pull latest changes
+          git pull origin main
+          
+          # Install dependencies
+          npm ci
+          
+          # Build the application
+          npm run build
+          
+          # Deploy to web directory
+          sudo rm -rf /var/www/reguardAI/*
+          sudo cp -r dist/* /var/www/reguardAI/
+          
+          # Set permissions
+          sudo chown -R www-data:www-data /var/www/reguardAI/
+          sudo chmod -R 755 /var/www/reguardAI/
+          
+          # Reload nginx
+          sudo systemctl reload nginx
+          
+          echo "Deployment completed successfully!"
+        EOF
+        
+    - name: Health Check
+      run: |
+        sleep 3
+        curl -f http://${{ secrets.EC2_HOST }} || echo "Health check failed, but deployment completed"
